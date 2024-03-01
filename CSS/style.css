@@ -1,0 +1,692 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+  text-align: center;
+  font-weight: bold;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+li {
+  list-style: none;
+  margin: 2rem;
+}
+
+li a:hover {
+  color: #8328d7;
+}
+
+a {
+  padding: 1rem;
+  font-weight: bolder;
+  text-decoration: none;
+  border-radius: 5%;
+}
+
+a:visited {
+  color: #8328d7;
+}
+
+a[href="#top"] {
+  margin: 1rem;
+  display: block;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  margin-top: 50vh;
+  text-align: center;
+}
+
+img {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.menu {
+  margin: 0 auto;
+  padding: 1rem;
+  width: 30%;
+  height: auto;
+  margin-bottom: 100vh;
+  font-size: 125%;
+  background-color: #000;
+}
+
+.menu li:first-child {
+  margin-top: 1rem;
+}
+
+.menu li:last-child {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1300px) {
+  .menu {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .menu {
+    width: 60%;
+  }
+}
+
+@media (max-width: 900px) {
+  .menu {
+    width: 80%;
+  }
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 3.8rem;
+  left: 2rem;
+}
+
+.dark-theme {
+  background-color: #1a1919;
+  color: #fff;
+}
+
+.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark-menu {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-menu {
+  background-color: #000;
+  color: #fff;
+}
+
+.dark-a {
+  color: #000;
+}
+
+.light-a {
+  color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+  height: 80vh;
+  background-color: #222;
+  border: medium solid #000;
+  text-align: center;
+}
+
+.item {
+  background-color: #48485a;
+  border: thin solid #fff;
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-explicit {
+  display: grid;
+  /* Grid de 3cx3r */
+  grid-template-columns: 50% 100px 1fr;
+  grid-template-rows: 2rem 20vh 30%;
+  /* Grid de 5cx4r */
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(4, 25%);
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  /* Grid de 4cx5r */
+  grid-template-columns: 20% repeat(2, 30%) 20%;
+  grid-template-rows: repeat(5, auto);
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  grid-gap: 50px 0px;
+  column-gap: 4rem;
+  row-gap: 2rem;
+  /* gap: row column */
+  gap: 1vh 1vw;
+  gap: 0;
+}
+
+.grid-explicit .item {
+  background-color: #1c1d54;
+  border: thin solid #fff;
+  color: #fff;
+}
+
+.grid-explicit .item:nth-child(10) {
+  color: #f00;
+  border: #f00 solid;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 2/3;
+  grid-column: 3/5;
+  /* shortcut de ambos: grid-row-start/grid-column-start/grid-row-end/grid-column-end */
+  grid-area: 3/3/4/5;
+}
+
+.grid-explicit .item:nth-child(10):hover {
+  background-color: #f00;
+  color: #000;
+}
+
+.grid-explicit .item:nth-child(12) {
+  color: #0f0;
+  border: #0f0 solid;
+  grid-row: span 2;
+  grid-column: span 3;
+}
+
+.grid-explicit .item:nth-child(12):hover {
+  background-color: #0f0;
+  color: #000;
+}
+
+.grid-explicit .item:nth-child(15) {
+  color: #ff0;
+  border: #ff0 solid;
+  grid-row: 1/ span 2;
+  grid-column: 1/ span 2;
+}
+
+.grid-explicit .item:nth-child(15):hover {
+  background-color: #ff0;
+  color: #000;
+}
+
+.grid-line-names {
+  display: grid;
+  /* Grid de 3cx3r */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: [c1] 1fr [c2] 1fr [c3] 1fr [c4];
+  grid-template-rows: [r1] auto [r2] auto [r3] auto [r4];
+}
+
+.grid-line-names .item {
+  color: #fff;
+  background-color: #0a2c1a;
+  border: thin solid #fff;
+}
+
+.grid-line-names .item:nth-child(3) {
+  color: #ff5722;
+  border: #ff5722 solid;
+  grid-area: r3/c1/r4/c4;
+}
+
+.grid-line-names .item:nth-child(3):hover {
+  background-color: #ff5722;
+  color: #000;
+}
+
+.grid-line-names .item:nth-child(9) {
+  color: #42a5f5;
+  border: #42a5f5 solid;
+  grid-area: r4/c2/r5/c4;
+}
+
+.grid-line-names .item:nth-child(9):hover {
+  background-color: #42a5f5;
+  color: #000;
+}
+
+.grid-areas {
+  display: grid;
+  /* Grid de 2cx3r */
+  grid-template-columns: 1fr 200px;
+  grid-template-rows: 100px repeat(2, 1fr) 60px;
+  grid-template-areas:
+    "header header"
+    "content sidebar"
+    "content ."
+    "footer footer";
+}
+
+.header {
+  grid-area: header;
+  background-color: #cad409;
+}
+
+.content {
+  grid-area: content;
+  background-color: #911212;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #05885f;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #6414c6;
+}
+
+.grid-areas .item {
+  border: #fff solid thin;
+}
+
+.grid-implicit {
+  width: 49.8%;
+
+  display: grid;
+  display: inline-grid;
+  /* Grid de 4cx3r */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 170px);
+}
+
+.grid-implicit .item {
+  background-color: #edb408;
+  border: thin solid #000;
+  color: #000
+}
+
+.grid-flow {
+  display: grid;
+  /* Grid de 5cx4r */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  grid-auto-rows: 100px;
+  grid-auto-flow: column;
+  grid-auto-columns: 50px;
+}
+
+.grid-flow .item {
+  border: #000 thin solid;
+}
+
+.grid-flow .item:nth-child(odd) {
+  background-color: #f00;
+  color: #000;
+}
+
+.grid-flow .item:nth-child(even) {
+  background-color: #000;
+}
+
+.grid-flow-dense {
+  display: grid;
+  /* Grid de 5cx4r */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-auto-flow: column dense;
+}
+
+.grid-flow-dense .item:nth-child(11) {
+  color: #e6b450;
+  grid-area: span 3/ span 2;
+}
+
+.grid-flow-dense .item:nth-child(11):hover {
+  background-color: #e6b450;
+  color: #000;
+}
+
+.grid-layers {
+  display: grid;
+  /* Grid de 4cx4r */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-layers .item {
+  color: #000;
+  border: none;
+
+}
+
+.grid-layers .item:nth-child(1) {
+  background-color: #dcea34;
+  grid-area: 1/1/3/3
+}
+
+.grid-layers .item:nth-child(1):hover {
+  background-color: #e4ff80;
+}
+
+.grid-layers .item:nth-child(2) {
+  background-color: #4a7af9;
+  grid-area: 3/5/1/3
+}
+
+.grid-layers .item:nth-child(2):hover {
+  background-color: #7095f9;
+}
+
+.grid-layers .item:nth-child(3) {
+  background-color: #83d166;
+  grid-area: 3/1/5/3
+}
+
+.grid-layers .item:nth-child(3):hover {
+  background-color: #9fff7c;
+}
+
+.grid-layers .item:nth-child(4) {
+  background-color: #ce8025;
+  grid-area: 3/3/5/5
+}
+
+.grid-layers .item:nth-child(4):hover {
+  background-color: #ff9e2d;
+}
+
+.grid-layers .item:nth-child(5) {
+  background-color: #c328e8;
+  opacity: .8;
+  grid-area: 2/2/4/4
+}
+
+.grid-layers .item:nth-child(5):hover {
+  background-color: #f54be7;
+}
+
+.grid-order {
+  display: grid;
+  /* Grid de 3cx2r */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid-order .item {
+  background-color: #2e0000;
+}
+
+.grid-order .item:nth-child(1) {
+  order: 1;
+}
+
+.grid-order .item:nth-child(2) {
+  order: 2;
+}
+
+.grid-order .item:nth-child(5) {
+  order: -1;
+}
+
+.grid-align {
+  display: grid;
+  /* Grid de 3cx2r */
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 200px);
+  /* justify-items: eje x */
+  justify-items: stretch;
+  justify-items: start;
+  justify-items: end;
+  justify-items: baseline;
+  justify-items: center;
+  /* align-items: eje y */
+  align-items: stretch;
+  align-items: start;
+  align-items: end;
+  align-items: baseline;
+  align-items: center;
+}
+
+.grid-align .item:nth-child(1) {
+  color: #f00;
+  justify-self: end;
+  align-self: end;
+  order: -3
+}
+
+.grid-align .item:nth-child(1):hover {
+  background-color: #f00;
+  color: #000;
+}
+
+.grid-align .item:nth-child(2) {
+  color: #0f0;
+  justify-self: start;
+  align-self: end;
+  order: -2
+}
+
+.grid-align .item:nth-child(2):hover {
+  background-color: #0f0;
+  color: #000;
+}
+
+.grid-align .item:nth-child(3) {
+  color: #ff0;
+  justify-self: end;
+  align-self: start;
+}
+
+.grid-align .item:nth-child(3):hover {
+  background-color: #ff0;
+  color: #000;
+}
+
+.grid-align .item:nth-child(4) {
+  color: #00f;
+  justify-self: start;
+  align-self: start;
+}
+
+.grid-align .item:nth-child(4):hover {
+  background-color: #00f;
+  color: #000;
+}
+
+.grid-align .item:nth-child(5) {
+  color: #c000ff;
+  justify-self: end;
+  align-self: end;
+  order: -1
+}
+
+.grid-align .item:nth-child(5):hover {
+  background-color: #c000ff;
+  color: #000;
+}
+
+.grid-align-tracks {
+  display: grid;
+  /* Grid de 3cx2r */
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 200px);
+  /* justify-content: x */
+  justify-content: start;
+  justify-content: end;
+  justify-content: center;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  /* align-content:y */
+  align-content: start;
+  align-content: end;
+  align-content: center;
+  align-content: space-between;
+  align-content: space-around;
+  align-content: space-evenly;
+}
+
+.grid-align-tracks .item:nth-child(odd) {
+  background-color: #fff;
+  color: #000;
+  border: solid medium #000;
+}
+
+.grid-align-tracks .item:nth-child(odd):hover {
+  background-color: #000;
+  color: #fff;
+  border: solid thin #fff;
+}
+
+.grid-align-tracks .item:nth-child(even) {
+  background-color: #000;
+  color: #fff;
+}
+
+.grid-align-tracks .item:nth-child(even):hover {
+  background-color: #fff;
+  color: #000;
+  border: solid medium #000;
+}
+
+.grid-min-max {
+  display: grid;
+  /* Grid de 4cx?r */
+  grid-template-columns: repeat(4, minmax(100px, 200px));
+  grid-template-columns: repeat(4, minmax(min-content, 200px));
+  grid-template-columns: repeat(4, minmax(100px, min-content));
+  grid-template-columns: repeat(4, minmax(max-content, 200px));
+  grid-template-columns: repeat(4, minmax(100px, max-content));
+  grid-template-columns: repeat(4, minmax(min-content, max-content));
+}
+
+.grid-min-max .item {
+  background-color: #2ec65e;
+  color: #000;
+  border: thin solid #000;
+}
+
+.grid-repeat {
+  display: grid;
+  /* Grid de 4cx?r */
+  grid-template-columns: repeat(4, 10% 20% 30% 40%);
+  grid-template-columns: repeat(1, 10% 20% 30% 40%);
+  grid-template-rows: repeat(2, 20vh 10vh);
+  grid-auto-rows: repeat(2, 20vh 10vh);
+  /* no funciona */
+}
+
+.grid-repeat .item {
+  color: #000;
+  border: solid thin #000;
+  background-color: #bb115a;
+}
+
+.grid-dynamics {
+  display: grid;
+  /* Grid de 4cx?r */
+  grid-template-columns: repeat(4, 100px);
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.grid-dynamics .item {
+  background-color: #0a2c1a65;
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: 1vh 1vh;
+
+}
+
+.grid-responsive .item {
+  background-color: #f07178;
+  color: #000;
+  border: medium solid #000;
+}
+
+.grid-responsive .item:nth-child(even):hover {
+  background-color: #2ec65e;
+}
+
+.grid-responsive .item:nth-child(odd):hover {
+  background-color: #1c48e6;
+}
+
+.grid-nested {
+  display: grid;
+  /* Grid de 3cx?r */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Reseteando estilos de la clase item (las hice flexbox para centrar el texto) */
+.grid-nested .item:nth-child(1) {
+  display: grid;
+  justify-content: start;
+  align-items: stretch;
+}
+
+.sub-item {
+  padding: 1rem;
+  color: #000;
+  border: solid medium #2d2828;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-item:nth-child(even):hover {
+  background-color: #c32;
+}
+
+.sub-item:nth-child(odd):hover {
+  background-color: #fc3;
+}
+
+.subgrid-item {
+  padding: 1rem;
+  color: #000;
+  border: solid medium #2d2828;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subgrid-item:nth-child(even):hover {
+  background-color: #ee34ee;
+}
+
+.subgrid-item:nth-child(odd):hover {
+  background-color: #f51d2f;
+}
+
+.grid {
+  display: grid;
+  /* Grid de 3cx4r */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr)
+}
+
+.subgrid {
+  justify-content: initial;
+  align-items: initial;
+  /* Para que subgrid funcione es necesario seguir estos pasos:
+  1) Definir explicitamente su grid-area (grid-column y grid-row).
+  2) Aplicar display grid al elemento que aplicará subgrid.
+  3) Aplicar el valor de subgrid a las columnas o filas según se necesite. */
+  grid-area: 1/span 3/3;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
