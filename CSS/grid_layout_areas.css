@@ -1,0 +1,79 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "header header header header header header"
+    "nav nav nav nav nav nav"
+    "uc-left uc-left uc-center uc-center uc-right uc-right"
+    "middle-content middle-content middle-content lower-content lower-conten lower-content"
+    "footer footer footer footer footer footer";
+}
+
+body> :not(script) {
+  background-color: #d80065;
+  border: solid medium #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  grid-area: header;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.uc-left {
+  grid-area: uc-left;
+}
+
+.uc-center {
+  grid-area: uc-center;
+}
+
+.uc-right {
+  grid-area: uc-right;
+}
+
+.middle-content {
+  grid-area: middle-content;
+}
+
+.lower-content {
+  grid-area: lower-content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      "header header header header header"
+      "nav uc-left uc-center uc-center uc-right"
+      "nav middle-content middle-content middle-content middle-content"
+      "nav lower-content lower-content lower-content lower-content"
+      "footer footer footer footer footer";
+  }
+}
